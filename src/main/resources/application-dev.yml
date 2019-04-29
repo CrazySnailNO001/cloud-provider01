@@ -1,0 +1,20 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: provider-service
+
+
+eurekaServer:
+  host: localhost  #注册中心的地址
+  port: 8761       #注册中心服务端的端口号
+  user: martin     #注册中心安全校验用户名
+  password: 123456 #注册中心安全校验密码
+
+eureka:
+  client:
+    register-with-eureka: true  #将此项目注册到Eureka服务
+    service-url:
+#          defaultZone: http://${eurekaServer.user}:${eurekaServer.password}@${eurekaServer.host}:${eurekaServer.port}/eureka
+      defaultZone: http://localhost:8761/eureka/
