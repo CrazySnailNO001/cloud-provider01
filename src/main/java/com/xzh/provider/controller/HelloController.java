@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class HelloController {
     @RequestMapping("/hello")
     public String index(@RequestParam String name) throws InterruptedException {
-//        Thread.sleep(8000);
+        Thread.sleep(60);
+        System.out.println("=========");
         return "这是服务提供者1，参数："+name;
     }
 
