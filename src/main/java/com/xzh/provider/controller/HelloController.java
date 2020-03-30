@@ -27,4 +27,15 @@ public class HelloController {
     public String ribbonPost(@RequestBody String name) {
         return "这是服务提供者1，post请求,参数：" + name;
     }
+
+
+    @RequestMapping("/timeout")
+    public String timeout(@RequestParam String name) throws InterruptedException {
+        Thread.sleep(60);
+
+        String response = "这是provider-service1，参数：" + name;
+        log.info("[Timeout API] response : {}", response);
+
+        return response;
+    }
 }
