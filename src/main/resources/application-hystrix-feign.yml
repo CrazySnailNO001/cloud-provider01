@@ -1,0 +1,39 @@
+server:
+  port: 8763
+  servlet:
+    context-path: /feign-hystrix
+
+spring:
+  application:
+    name: feign-hystrix
+
+eurekaServer:
+  host: localhost  #注册中心的地址
+  port: 8761       #注册中心服务端的端口号
+  user: martin     #注册中心安全校验用户名
+  password: 123456 #注册中心安全校验密码
+
+eureka:
+  client:
+    register-with-eureka: true  #将此项目注册到Eureka服务
+    service-url:
+#          defaultZone: http://${eurekaServer.user}:${eurekaServer.password}@${eurekaServer.host}:${eurekaServer.port}/eureka
+      defaultZone: http://aliCloud:8761/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'   #加载所有的端点/默认只加载了 info、health
+
+# http://localhost:8764/customer/actuator/info 可以访问到
+info:
+  author: "xzh"
+  version: "V1.0.1"
+  blog-url: "https://blog.csdn.net/weixin_40910372"
